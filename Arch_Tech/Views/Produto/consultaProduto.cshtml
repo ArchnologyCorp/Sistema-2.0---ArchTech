@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Arch_Tech.Models.Produto>
+
+@{
+    ViewBag.Title = "consultaProduto";
+}
+
+<br />
+<br />
+<div class="container">
+    <h2>Consulta de Produto</h2>
+    @using (Html.BeginForm("consultaProduto", "Produto", FormMethod.Post))
+    {
+        <div class="form-inline">
+            <input class="form-control" type="text" id="txtNomeProduto" name="txtNomeProduto" placeholder="Digite aqui sua pesquisa" />
+            <button type="submit" class="btn button-pesquisa"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+    }
+    <!--Lógica para não aparecer o botão quando o tipo logado não for funcionário, no caso, o código 1.-->
+    @if (Session["tipoLogado0"] != null)
+    {
+        <button class="btn" id="botaoPadrao"><i class="glyphicon glyphicon-plus"></i> @Html.ActionLink("Cadastrar", "areaGerente", null, new { @class = "actionLink" }) </button>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantidade_estoque_lista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor_unitario)
+            </th>
+            @if (Session["tipoLogado0"] != null)
+            {
+                <th></th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cod_produto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome_produto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidade_estoque_lista)
+                </td>
+                <td>
+                    R$ @Html.DisplayFor(modelItem => item.valor_unitario)
+                </td>
+                @if (Session["tipoLogado0"] != null)
+                {
+                    <td>
+                        <button class="btn btnConsulta">
+                            <i class="glyphicon glyphicon-list-alt"></i> @Html.ActionLink("Selecionar", "areaGerente", new { id = item.cod_produto }, new { @class = "actionSelecionar" })
+                        </button>
+                    </td>
+
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+
+

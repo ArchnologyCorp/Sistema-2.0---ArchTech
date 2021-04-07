@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Arch_Tech.Models.Pedido>
+@{
+    ViewBag.Title = "consultaPedido";
+}
+
+<br />
+<br />
+<br />
+<h2>Consulta de Pedido</h2>
+
+<div class="container">
+    <!--begin form para submeter os dados de pesquisa para a view, e, após o processamento, gerar o filtro da lista-->
+    @using (Html.BeginForm("consultaPedido", "Pedido", FormMethod.Post))
+    {
+        <div class="form-inline">
+            <input class="form-control" type="text" id="txtCodPedido" name="txtCodPedido" placeholder="Digite aqui sua pesquisa" />
+            <button type="submit" class="btn button-pesquisa"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+
+    }
+    <button class="btn" id="botaoPadrao" style="margin-left: 5px;"><i class="glyphicon glyphicon-shopping-cart"></i> @Html.ActionLink("Ir para o carrinho", "cadastroPedido", null, new { @class = "actionLink", style = "font-size: 19px;" }) </button>
+    <!--laço de repetição para pegar todos os valores da consulta do banco, transformada em lista-->
+    @foreach (var item in Model)
+    {
+        <div id="cardPedido" class="card" style="width: auto; margin: 10px 0;">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>@Html.DisplayNameFor(model => model.cod_pedido): @Html.DisplayFor(modelItem => item.cod_pedido)</p>
+                </div>
+                <div class="col-md-3">
+                    <p>@Html.DisplayNameFor(model => model.situacao): @Html.DisplayFor(modelItem => item.situacao)</p>
+                </div>
+                <div class="col-md-2">
+                    <p>@Html.DisplayNameFor(model => model.nome_cli): @Html.DisplayFor(modelItem => item.nome_cli)</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>@Html.DisplayNameFor(model => model.nome_produto): @Html.DisplayFor(modelItem => item.nome_produto)</p>
+                </div>
+                <div class="col-md-3">
+                    <p>@Html.DisplayNameFor(model => model.quantidade_pedido):  @Html.DisplayFor(modelItem => item.quantidade_pedido)</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>@Html.DisplayNameFor(model => model.data): @Html.DisplayFor(modelItem => item.data)</p>
+                </div>
+                <div class="col-md-3">
+                    <p>@Html.DisplayNameFor(model => model.valor): R$ @Html.DisplayFor(modelItem => item.valor)</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>@Html.DisplayNameFor(model => model.desc_produto): @Html.DisplayFor(modelItem => item.desc_produto)</p>
+                </div>
+                <div class="col-md-4">
+                    <p>@Html.DisplayNameFor(model => model.tipo_pagamento): @Html.DisplayFor(modelItem => item.tipo_pagamento)</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

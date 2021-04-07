@@ -1,0 +1,99 @@
+﻿@model Arch_Tech.Models.Pedido
+
+@{
+    ViewBag.Title = "cadastroPedido";
+}
+<br />
+<br />
+<h2>Cadastrar Pedido</h2>
+<div class="container">
+    <button class="btn" id="botaoPadrao" style="margin-left: 21.2%;"><i class="glyphicon glyphicon-circle-arrow-left"></i> @Html.ActionLink("Voltar", "consultaPedido", "Pedido", null, new { @class = "actionLink" })</button>
+    @using (Html.BeginForm("cadastroPedido", "Pedido", FormMethod.Post))
+    {
+        <center>
+            <div class="content" style="height:58vh;">
+                <div class="card" style="width:665px;">
+                    <form class="form-group">
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.cod_produto)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("produtos", ViewBag.produtos as SelectList, "Escolha o produto", new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(x => x.cod_produto, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.situacao)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("situacao", ViewBag.situacao as SelectList, "Situação do pedido", new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(x => x.situacao, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.quantidade_pedido)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(m => m.quantidade_pedido, new { htmlAttributes = new { type = "number", placeholder = "Digite o valor total do pedido", @class = "form-control controlgerente", name = "txtValorPedido", id = "txtValorPedido", required = "required" } })
+                                    @Html.ValidationMessageFor(x => x.quantidade_pedido, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.valor)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(m => m.valor, new { htmlAttributes = new { type = "text", placeholder = "Digite o valor total do pedido", @class = "form-control", name = "txtValorPedido", id = "txtValorPedido", required = "required" } })
+                                    @Html.ValidationMessageFor(x => x.valor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.cod_cli)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("clientes", ViewBag.clientes as SelectList, "Escolha o cliente", new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(x => x.cod_cli, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="editor-label">
+                                    @Html.LabelFor(m => m.cod_pagamento)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("pagamentos", ViewBag.pagamentos as SelectList, "Escolha o tipo de pagamento", new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(x => x.cod_produto, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.data)
+                            </div>
+                            <div class="editor-field" style="width: 200px;">
+                                @Html.EditorFor(m => m.data, new { htmlAttributes = new { type = "date", placeholder = "Digite a data do pedido", @class = "form-control controlgerente", name = "txtDataPedido", id = "txtDataPedido", required = "required" } })
+                                @Html.ValidationMessageFor(x => x.data, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <button type="submit" class="btn" id="botaoPadrao">Cadastrar</button>
+                        </div>
+                        <p style="color: #fff; margin-top: 10px">@ViewBag.confCadastro</p>
+                        <br />
+                    </form>
+                </div>
+            </div>
+        </center>
+    }
+</div>

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<div id="mainSlider" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#mainSlider" data-slide-to="1"></li>
+        <li data-target="#mainSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/img/carrossel1.png" class="img-responsive">
+            <div class="carousel-caption">
+                <h2>ArchTech</h2>
+                <p>A loja que está a um clique de distância</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/img/carrossel2.png" class="img-responsive">
+            <div class="carousel-caption">
+                <h2>Lista de Produtos</h2>
+                <p> @Html.ActionLink("Clique aqui para ver a lista de produtos", "consultaProduto", "Produto",null, new { @class = "carrosselLink" })</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/img/carrossel3.png" class="img-responsive">
+            <div class="carousel-caption">
+                <h2>Cadastro de Pedidos</h2>
+                <p> @Html.ActionLink("Clique aqui para cadastrar pedidos", "cadastroPedido", "Pedido", null, new { @class = "carrosselLink" })</p>
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#mainSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#mainSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="container" id="homeCont">
+    <h2 class="sobre">Sobre a ArchTech</h2>
+    <ul class="sobreLista">
+        <li>Número de funcionários: 10 funcionários (incluso gerente);</li>
+        <li>Produtos comercializados: peças de computadores, notebooks, aparelhos eletrônicos em geral (fones, caixas de som, webcams) e roteadores;</li>
+        <li>Devido a pandemia do coronavírus, a empresa realiza entrega dos pedidos, que terão que ser efetuados via atendimento telefônico ou via e-mail;</li>
+        <li>Telefone da empresa: (11) 3603-7057;</li>
+        <li>E-mail da empresa: archtec@gmail.com;</li>
+        <li>Formas de pagamento: crédito, débito, boleto, paypal, picpay;</li>
+        <li>Horário de atendimento: 8h às 17h;</li>
+    </ul>
+</div>
+

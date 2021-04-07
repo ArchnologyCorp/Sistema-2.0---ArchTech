@@ -1,0 +1,306 @@
+﻿
+/*CSS incicial pré-programado*/
+body {
+    background-size: cover;
+    background-image: url(../img/fundoArchTech.jpg);
+    margin-top: 95px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*setando alguns valores padrões para os elementos*/
+h2 {
+    color: #FFF;
+    text-align: center;
+}
+
+ul {
+    color: #FFF;
+}
+
+/*barra de navegação*/
+#logo {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 185px;
+}
+
+
+.navbar {
+    background-color: #000;
+    height: auto;
+}
+
+    .navbar .nav > li {
+        float: left;
+        display: inline-block;
+        font-size: 19px;
+        margin: 3.5rem 0 0 0;
+    }
+
+/*definindo nova quantidade de margin-left para melhor responsividade.*/
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    margin-left: 160px;
+}
+
+/*dropdown da barra de navegação*/
+.dropdown-menu {
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+    .dropdown-menu a {
+        color: #fff;
+    }
+
+        .dropdown-menu a:hover {
+            color: #41CC23;
+            transition-duration: 0.6s;
+        }
+
+    .dropdown-menu i {
+        margin-right: 10px;
+        font-size: 15px;
+    }
+
+.dropdown-divider {
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+
+/*content para envolver algumas tags do site e deixá-las centralizadas*/
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 80vh;
+}
+
+/*definição do card personalizado*/
+.card {
+    background-color: #000;
+    box-shadow: 0px 2px 5px #1f232b5e;
+    border-radius: 10px;
+    width: 420px;
+    border: 2px solid #FFF;
+}
+
+    .card > h2 {
+        text-align: center;
+        color: #FFF;
+    }
+
+    .card > div {
+        color: #FFF;
+        font-size: 20px;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+
+
+    .card > .btn {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+/*Login*/
+#cardLogin .form-group .input-group {
+    margin-left: 45px;
+}
+
+#botaoPadrao {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+#botaoPadrao:hover {
+    border-color: #41CC23;
+    color: #41CC23;
+    transition-duration: 0.6s;
+}
+
+/*setando valor do container-fluid para zero para não gerar espaçamentos*/
+.container-fluid {
+    padding: 0;
+}
+
+/*Carrossel do home*/
+#mainSlider .carousel-inner, #mainSlider .item {
+    height: 40vh;
+}
+
+
+#mainSlider .carousel-caption {
+    top: 30%;
+}
+
+    #mainSlider .carousel-caption h2 {
+        font-size: 50px;
+        margin: 5px 0 0 0;
+        color: #fff;
+    }
+
+    #mainSlider .carousel-caption p {
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 80px;
+        color: #fff;
+    }
+
+    .carrosselLink{
+        color: #fff;
+    }
+
+        .carrosselLink:hover {
+            color: #CDDBCF;
+        }
+        .carrosselLink:link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .carousel-indicators .active {
+            background-color: #41CC23;
+        }
+
+/*container do home*/
+#homeCont {
+    background-color: #000;
+    width: auto;
+}
+
+.sobre {
+    color: #fff;
+    margin: 10px 0 10px 0;
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 3px solid #41CC23;
+}
+
+.sobreLista li {
+    margin: 15px 0 0 80px;
+    font-size: 20px;
+}
+
+/*consulta de produto*/
+.form-inline {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.button-pesquisa {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+    .button-pesquisa:hover {
+        color: #41CC23;
+        border-color: #41CC23;
+        transition-duration: 0.6s;
+    }
+
+/*area do gerente*/
+#botaoEdit {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+    #botaoEdit:hover {
+        border-color: #1F4BCA;
+        color: #1F4BCA;
+        transition-duration: 0.6s;
+    }
+
+#botaoDelete {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+    #botaoDelete:hover {
+        border-color: #F03737;
+        color: #F03737;
+        transition-duration: 0.6s;
+    }
+
+/*consulta pedido*/
+.col-md-2 {
+    float: right;
+    margin-right: 18px;
+}
+
+/*consulta produto*/
+.table {
+    color: #fff;
+    background-color: #000;
+}
+
+.actionLink {
+    color: #fff;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+    .actionLink:hover {
+        color: #41CC23;
+        transition-duration: 0.6s;
+    }
+
+    .actionLink:link {
+        text-decoration: none;
+    }
+
+.actionSelecionar {
+    color: #fff;
+    text-decoration: none;
+}
+    .actionSelecionar:hover {
+        color: #fff;
+    }
+
+.btnConsulta {
+    background-color: #3FA92A;
+}
+
+/*rodapé da página */
+#rodape {
+    color: #808080;
+    font-size: 20px;
+    padding: 12px 0px;
+    text-align: center;
+    background-color: black;
+}
+
+.text-danger{
+    font-size: 12px;
+    text-align: start;
+}

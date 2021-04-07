@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="~/Content/fonts/font/flaticon.css" />
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <img src="~/img/logo.png" id="logo" />
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Início", "Home", "Home")</li>
+                        <li class="dropdown">
+                            <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Consulta <i class="flaticon-download-12"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-divider">
+                                    <a class="dropdown-item"><i class="glyphicon glyphicon-tag"></i>@Html.ActionLink("Produto", "consultaProduto", "Produto")</a>
+                                </div>
+                                <div class="dropdown-divider">
+                                    <a class="dropdown-item"><i class="glyphicon glyphicon-shopping-cart"></i>@Html.ActionLink("Pedido", "consultaPedido", "Pedido") </a>
+                                </div>
+                            </div>
+                        </li>
+                        @if (Session["tipoLogado0"] != null)
+                        {
+                            <li>@Html.ActionLink("Área do Gerente", "areaGerente", "Produto")</li>
+                        }
+                    </ul>
+                    @if (Session["usuarioLogado"] != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Carrinho", "cadastroPedido", "Pedido")</li>
+                            <li class="dropdown">
+                                <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="glyphicon glyphicon-user" style="margin-right: 10px;"></i>Bem Vindo, @Session["usuarioLogado"].ToString() <i class="flaticon-download-12"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"><i class="glyphicon glyphicon-log-out"></i> @Html.ActionLink("Sair", "Logout", "Home")</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li> @Html.ActionLink("Login", "Index", "Home")</li>
+                        </ul>
+
+                    }
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+        <footer id="rodape">
+            <p>&copy; @DateTime.Now.Year - ArchTech</p>
+            <p>Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

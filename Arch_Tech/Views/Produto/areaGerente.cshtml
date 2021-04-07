@@ -1,0 +1,91 @@
+﻿@model Arch_Tech.Models.Produto
+@{
+    ViewBag.Title = "areaGerente";
+}
+
+<br />
+<br />
+<h2>Área do Gerente</h2>
+<div class="container">
+    <button class="btn" id="botaoPadrao" style="margin-left: 21.5%;"><i class="glyphicon glyphicon-circle-arrow-left"></i> @Html.ActionLink("Voltar", "consultaProduto", "Produto",null, new {@class= "actionLink"})</button>
+    <center>
+        <div class="content" style="height:65vh;">
+            <!--begin form para submeter as informações de pesquisa para o controller, e exibir na view posteriormente, além de ser responsável pelo envio de dados dos outros três botões-->
+            @using (Html.BeginForm("areaGerente", "Produto", FormMethod.Post))
+            {
+                <div class="card" style="width:650px;">
+                    <div class="row">
+                        <div class="form-inline" style="float:none; margin-top: 10px;">
+                            <div class="editor-field">
+                                @Html.EditorFor(m => m.cod_produto, new { htmlAttributes = new { type = "text", placeholder = "Digite aqui sua pesquisa", @class = "form-control", name = "txtPesquisaProd", id = "txtPesquisaProd" } })
+                                <button type="submit" class="btn button-pesquisa" name="btn" value="Pesquisar"><i class="glyphicon glyphicon-search"></i> Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.nome_produto)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(m => m.nome_produto, new { htmlAttributes = new { @Value = ViewBag.nome, type = "text", placeholder = "Digite o nome do produto", @class = "form-control controlgerente", name = "txtNomeProd", id = "txtNomeProd" } })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.quantidade_estoque)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(m => m.quantidade_estoque, new { htmlAttributes = new { @Value = ViewBag.quantidade, type = "number", placeholder = "Digite a quantidade", @class = "form-control controlgerente", name = "txtQuantidade", id = "txtQuantidade" } })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.cod_fornecedor)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownList("marcas", ViewBag.marcas as SelectList, "Escolha a marca", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.valor_unitario)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(m => m.valor_unitario, new { htmlAttributes = new { @Value = ViewBag.valor, type = "text", placeholder = "Digite o valor", @class = "form-control", id = "txtValor" } })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-push-6">
+                            <div class="editor-label">
+                                @Html.LabelFor(m => m.desc_produto)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextArea("TextArea", (string)ViewBag.desc, new { @class = "form-control", placeholder = "Digite a descrição do produto", rows = "4", style = "resize:none;", name = "TextArea" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row" style="margin:8px 0px;">
+                        <div class="col-md-4">
+                            <button type="submit" value="Atualizar" name="btn" class="btn" id="botaoEdit"><i class="glyphicon glyphicon-pencil"></i> Alterar </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" value="Cadastrar" name="btn" class="btn" id="botaoPadrao"><i class="glyphicon glyphicon-plus-sign"></i> Cadastrar</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" value="Excluir" name="btn" class="btn" id="botaoDelete"><i class="glyphicon glyphicon-trash"></i> Excluir</button>
+                        </div>
+                    </div>
+                    <p style="color: #fff;">@ViewBag.mensagemSucesso</p>
+                </div>
+
+            }
+        </div>
+    </center>
+</div>
+

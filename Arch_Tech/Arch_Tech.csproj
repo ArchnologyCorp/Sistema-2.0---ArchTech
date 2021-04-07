@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23E8AF7A-8934-496B-AE33-5DD12E07787C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arch_Tech</RootNamespace>
+    <AssemblyName>Arch_Tech</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44385</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2020.0.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Funcionário.cs" />
+    <Compile Include="Models\Gerente.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Pagamento.cs" />
+    <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositório\actionsLogin.cs" />
+    <Compile Include="Repositório\actionsProduto.cs" />
+    <Compile Include="Repositório\conexao.cs" />
+    <Compile Include="Repositório\actionsPedido.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BD\dblojainformatica.sql" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="img\carrossel3.png" />
+    <Content Include="img\carrossel2.png" />
+    <Content Include="img\cleber.gif" />
+    <Content Include="img\cleber.mp4" />
+    <Content Include="img\fundoArchTech.jpg" />
+    <Content Include="img\leo.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="Content\fonts\font\flaticon.css" />
+    <Content Include="Content\fonts\font\flaticon.html" />
+    <Content Include="Content\fonts\font\Flaticon.svg" />
+    <Content Include="Content\fonts\png\antique.png" />
+    <Content Include="Content\fonts\png\arrow-1.png" />
+    <Content Include="Content\fonts\png\arrow-2.png" />
+    <Content Include="Content\fonts\png\arrow-3.png" />
+    <Content Include="Content\fonts\png\arrow-4.png" />
+    <Content Include="Content\fonts\png\arrow.png" />
+    <Content Include="Content\fonts\png\back-1.png" />
+    <Content Include="Content\fonts\png\back-10.png" />
+    <Content Include="Content\fonts\png\back-11.png" />
+    <Content Include="Content\fonts\png\back-2.png" />
+    <Content Include="Content\fonts\png\back-3.png" />
+    <Content Include="Content\fonts\png\back-4.png" />
+    <Content Include="Content\fonts\png\back-5.png" />
+    <Content Include="Content\fonts\png\back-6.png" />
+    <Content Include="Content\fonts\png\back-7.png" />
+    <Content Include="Content\fonts\png\back-8.png" />
+    <Content Include="Content\fonts\png\back-9.png" />
+    <Content Include="Content\fonts\png\back.png" />
+    <Content Include="Content\fonts\png\cancel-1.png" />
+    <Content Include="Content\fonts\png\cancel-2.png" />
+    <Content Include="Content\fonts\png\cancel.png" />
+    <Content Include="Content\fonts\png\check.png" />
+    <Content Include="Content\fonts\png\checked-1.png" />
+    <Content Include="Content\fonts\png\checked-2.png" />
+    <Content Include="Content\fonts\png\checked.png" />
+    <Content Include="Content\fonts\png\curved-arrow-1.png" />
+    <Content Include="Content\fonts\png\curved-arrow-2.png" />
+    <Content Include="Content\fonts\png\curved-arrow-3.png" />
+    <Content Include="Content\fonts\png\curved-arrow.png" />
+    <Content Include="Content\fonts\png\diagonal-arrow-1.png" />
+    <Content Include="Content\fonts\png\diagonal-arrow-2.png" />
+    <Content Include="Content\fonts\png\diagonal-arrow-3.png" />
+    <Content Include="Content\fonts\png\diagonal-arrow.png" />
+    <Content Include="Content\fonts\png\double-arrow.png" />
+    <Content Include="Content\fonts\png\double-chevron.png" />
+    <Content Include="Content\fonts\png\download-1.png" />
+    <Content Include="Content\fonts\png\download-10.png" />
+    <Content Include="Content\fonts\png\download-11.png" />
+    <Content Include="Content\fonts\png\download-12.png" />
+    <Content Include="Content\fonts\png\download-2.png" />
+    <Content Include="Content\fonts\png\download-3.png" />
+    <Content Include="Content\fonts\png\download-4.png" />
+    <Content Include="Content\fonts\png\download-5.png" />
+    <Content Include="Content\fonts\png\download-6.png" />
+    <Content Include="Content\fonts\png\download-7.png" />
+    <Content Include="Content\fonts\png\download-8.png" />
+    <Content Include="Content\fonts\png\download-9.png" />
+    <Content Include="Content\fonts\png\download.png" />
+    <Content Include="Content\fonts\png\export.png" />
+    <Content Include="Content\fonts\png\fast-forward-1.png" />
+    <Content Include="Content\fonts\png\fast-forward.png" />
+    <Content Include="Content\fonts\png\fullscreen-1.png" />
+    <Content Include="Content\fonts\png\fullscreen-2.png" />
+    <Content Include="Content\fonts\png\fullscreen.png" />
+    <Content Include="Content\fonts\png\indian-1.png" />
+    <Content Include="Content\fonts\png\indian-2.png" />
+    <Content Include="Content\fonts\png\indian.png" />
+    <Content Include="Content\fonts\png\list.png" />
+    <Content Include="Content\fonts\png\login.png" />
+    <Content Include="Content\fonts\png\logout.png" />
+    <Content Include="Content\fonts\png\menu-1.png" />
+    <Content Include="Content\fonts\png\menu-2.png" />
+    <Content Include="Content\fonts\png\menu-3.png" />
+    <Content Include="Content\fonts\png\menu.png" />
+    <Content Include="Content\fonts\png\more-1.png" />
+    <Content Include="Content\fonts\png\more.png" />
+    <Content Include="Content\fonts\png\next-1.png" />
+    <Content Include="Content\fonts\png\next-10.png" />
+    <Content Include="Content\fonts\png\next-11.png" />
+    <Content Include="Content\fonts\png\next-12.png" />
+    <Content Include="Content\fonts\png\next-13.png" />
+    <Content Include="Content\fonts\png\next-14.png" />
+    <Content Include="Content\fonts\png\next-2.png" />
+    <Content Include="Content\fonts\png\next-3.png" />
+    <Content Include="Content\fonts\png\next-4.png" />
+    <Content Include="Content\fonts\png\next-5.png" />
+    <Content Include="Content\fonts\png\next-6.png" />
+    <Content Include="Content\fonts\png\next-7.png" />
+    <Content Include="Content\fonts\png\next-8.png" />
+    <Content Include="Content\fonts\png\next-9.png" />
+    <Content Include="Content\fonts\png\next.png" />
+    <Content Include="Content\fonts\png\previous-1.png" />
+    <Content Include="Content\fonts\png\previous-2.png" />
+    <Content Include="Content\fonts\png\previous.png" />
+    <Content Include="Content\fonts\png\repeat-1.png" />
+    <Content Include="Content\fonts\png\repeat.png" />
+    <Content Include="Content\fonts\png\resize-1.png" />
+    <Content Include="Content\fonts\png\resize.png" />
+    <Content Include="Content\fonts\png\rewind-1.png" />
+    <Content Include="Content\fonts\png\rewind.png" />
+    <Content Include="Content\fonts\png\settings.png" />
+    <Content Include="Content\fonts\png\shuffle.png" />
+    <Content Include="Content\fonts\png\sort.png" />
+    <Content Include="Content\fonts\png\up-arrow-1.png" />
+    <Content Include="Content\fonts\png\up-arrow.png" />
+    <Content Include="Content\fonts\png\upload-1.png" />
+    <Content Include="Content\fonts\png\upload-10.png" />
+    <Content Include="Content\fonts\png\upload-2.png" />
+    <Content Include="Content\fonts\png\upload-3.png" />
+    <Content Include="Content\fonts\png\upload-4.png" />
+    <Content Include="Content\fonts\png\upload-5.png" />
+    <Content Include="Content\fonts\png\upload-6.png" />
+    <Content Include="Content\fonts\png\upload-7.png" />
+    <Content Include="Content\fonts\png\upload-8.png" />
+    <Content Include="Content\fonts\png\upload-9.png" />
+    <Content Include="Content\fonts\png\upload.png" />
+    <Content Include="Content\fonts\svg\antique.svg" />
+    <Content Include="Content\fonts\svg\arrow-1.svg" />
+    <Content Include="Content\fonts\svg\arrow-2.svg" />
+    <Content Include="Content\fonts\svg\arrow-3.svg" />
+    <Content Include="Content\fonts\svg\arrow-4.svg" />
+    <Content Include="Content\fonts\svg\arrow.svg" />
+    <Content Include="Content\fonts\svg\back-1.svg" />
+    <Content Include="Content\fonts\svg\back-10.svg" />
+    <Content Include="Content\fonts\svg\back-11.svg" />
+    <Content Include="Content\fonts\svg\back-2.svg" />
+    <Content Include="Content\fonts\svg\back-3.svg" />
+    <Content Include="Content\fonts\svg\back-4.svg" />
+    <Content Include="Content\fonts\svg\back-5.svg" />
+    <Content Include="Content\fonts\svg\back-6.svg" />
+    <Content Include="Content\fonts\svg\back-7.svg" />
+    <Content Include="Content\fonts\svg\back-8.svg" />
+    <Content Include="Content\fonts\svg\back-9.svg" />
+    <Content Include="Content\fonts\svg\back.svg" />
+    <Content Include="Content\fonts\svg\cancel-1.svg" />
+    <Content Include="Content\fonts\svg\cancel-2.svg" />
+    <Content Include="Content\fonts\svg\cancel.svg" />
+    <Content Include="Content\fonts\svg\check.svg" />
+    <Content Include="Content\fonts\svg\checked-1.svg" />
+    <Content Include="Content\fonts\svg\checked-2.svg" />
+    <Content Include="Content\fonts\svg\checked.svg" />
+    <Content Include="Content\fonts\svg\curved-arrow-1.svg" />
+    <Content Include="Content\fonts\svg\curved-arrow-2.svg" />
+    <Content Include="Content\fonts\svg\curved-arrow-3.svg" />
+    <Content Include="Content\fonts\svg\curved-arrow.svg" />
+    <Content Include="Content\fonts\svg\diagonal-arrow-1.svg" />
+    <Content Include="Content\fonts\svg\diagonal-arrow-2.svg" />
+    <Content Include="Content\fonts\svg\diagonal-arrow-3.svg" />
+    <Content Include="Content\fonts\svg\diagonal-arrow.svg" />
+    <Content Include="Content\fonts\svg\double-arrow.svg" />
+    <Content Include="Content\fonts\svg\double-chevron.svg" />
+    <Content Include="Content\fonts\svg\download-1.svg" />
+    <Content Include="Content\fonts\svg\download-10.svg" />
+    <Content Include="Content\fonts\svg\download-11.svg" />
+    <Content Include="Content\fonts\svg\download-12.svg" />
+    <Content Include="Content\fonts\svg\download-2.svg" />
+    <Content Include="Content\fonts\svg\download-3.svg" />
+    <Content Include="Content\fonts\svg\download-4.svg" />
+    <Content Include="Content\fonts\svg\download-5.svg" />
+    <Content Include="Content\fonts\svg\download-6.svg" />
+    <Content Include="Content\fonts\svg\download-7.svg" />
+    <Content Include="Content\fonts\svg\download-8.svg" />
+    <Content Include="Content\fonts\svg\download-9.svg" />
+    <Content Include="Content\fonts\svg\download.svg" />
+    <Content Include="Content\fonts\svg\export.svg" />
+    <Content Include="Content\fonts\svg\fast-forward-1.svg" />
+    <Content Include="Content\fonts\svg\fast-forward.svg" />
+    <Content Include="Content\fonts\svg\fullscreen-1.svg" />
+    <Content Include="Content\fonts\svg\fullscreen-2.svg" />
+    <Content Include="Content\fonts\svg\fullscreen.svg" />
+    <Content Include="Content\fonts\svg\indian-1.svg" />
+    <Content Include="Content\fonts\svg\indian-2.svg" />
+    <Content Include="Content\fonts\svg\indian.svg" />
+    <Content Include="Content\fonts\svg\list.svg" />
+    <Content Include="Content\fonts\svg\login.svg" />
+    <Content Include="Content\fonts\svg\logout.svg" />
+    <Content Include="Content\fonts\svg\menu-1.svg" />
+    <Content Include="Content\fonts\svg\menu-2.svg" />
+    <Content Include="Content\fonts\svg\menu-3.svg" />
+    <Content Include="Content\fonts\svg\menu.svg" />
+    <Content Include="Content\fonts\svg\more-1.svg" />
+    <Content Include="Content\fonts\svg\more.svg" />
+    <Content Include="Content\fonts\svg\next-1.svg" />
+    <Content Include="Content\fonts\svg\next-10.svg" />
+    <Content Include="Content\fonts\svg\next-11.svg" />
+    <Content Include="Content\fonts\svg\next-12.svg" />
+    <Content Include="Content\fonts\svg\next-13.svg" />
+    <Content Include="Content\fonts\svg\next-14.svg" />
+    <Content Include="Content\fonts\svg\next-2.svg" />
+    <Content Include="Content\fonts\svg\next-3.svg" />
+    <Content Include="Content\fonts\svg\next-4.svg" />
+    <Content Include="Content\fonts\svg\next-5.svg" />
+    <Content Include="Content\fonts\svg\next-6.svg" />
+    <Content Include="Content\fonts\svg\next-7.svg" />
+    <Content Include="Content\fonts\svg\next-8.svg" />
+    <Content Include="Content\fonts\svg\next-9.svg" />
+    <Content Include="Content\fonts\svg\next.svg" />
+    <Content Include="Content\fonts\svg\previous-1.svg" />
+    <Content Include="Content\fonts\svg\previous-2.svg" />
+    <Content Include="Content\fonts\svg\previous.svg" />
+    <Content Include="Content\fonts\svg\repeat-1.svg" />
+    <Content Include="Content\fonts\svg\repeat.svg" />
+    <Content Include="Content\fonts\svg\resize-1.svg" />
+    <Content Include="Content\fonts\svg\resize.svg" />
+    <Content Include="Content\fonts\svg\rewind-1.svg" />
+    <Content Include="Content\fonts\svg\rewind.svg" />
+    <Content Include="Content\fonts\svg\settings.svg" />
+    <Content Include="Content\fonts\svg\shuffle.svg" />
+    <Content Include="Content\fonts\svg\sort.svg" />
+    <Content Include="Content\fonts\svg\up-arrow-1.svg" />
+    <Content Include="Content\fonts\svg\up-arrow.svg" />
+    <Content Include="Content\fonts\svg\upload-1.svg" />
+    <Content Include="Content\fonts\svg\upload-10.svg" />
+    <Content Include="Content\fonts\svg\upload-2.svg" />
+    <Content Include="Content\fonts\svg\upload-3.svg" />
+    <Content Include="Content\fonts\svg\upload-4.svg" />
+    <Content Include="Content\fonts\svg\upload-5.svg" />
+    <Content Include="Content\fonts\svg\upload-6.svg" />
+    <Content Include="Content\fonts\svg\upload-7.svg" />
+    <Content Include="Content\fonts\svg\upload-8.svg" />
+    <Content Include="Content\fonts\svg\upload-9.svg" />
+    <Content Include="Content\fonts\svg\upload.svg" />
+    <Content Include="img\carrossel1.png" />
+    <Content Include="img\não.gif" />
+    <Content Include="img\railsonGif.gif" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\eps\antique.eps" />
+    <Content Include="Content\fonts\eps\arrow-1.eps" />
+    <Content Include="Content\fonts\eps\arrow-2.eps" />
+    <Content Include="Content\fonts\eps\arrow-3.eps" />
+    <Content Include="Content\fonts\eps\arrow-4.eps" />
+    <Content Include="Content\fonts\eps\arrow.eps" />
+    <Content Include="Content\fonts\eps\back-1.eps" />
+    <Content Include="Content\fonts\eps\back-10.eps" />
+    <Content Include="Content\fonts\eps\back-11.eps" />
+    <Content Include="Content\fonts\eps\back-2.eps" />
+    <Content Include="Content\fonts\eps\back-3.eps" />
+    <Content Include="Content\fonts\eps\back-4.eps" />
+    <Content Include="Content\fonts\eps\back-5.eps" />
+    <Content Include="Content\fonts\eps\back-6.eps" />
+    <Content Include="Content\fonts\eps\back-7.eps" />
+    <Content Include="Content\fonts\eps\back-8.eps" />
+    <Content Include="Content\fonts\eps\back-9.eps" />
+    <Content Include="Content\fonts\eps\back.eps" />
+    <Content Include="Content\fonts\eps\cancel-1.eps" />
+    <Content Include="Content\fonts\eps\cancel-2.eps" />
+    <Content Include="Content\fonts\eps\cancel.eps" />
+    <Content Include="Content\fonts\eps\check.eps" />
+    <Content Include="Content\fonts\eps\checked-1.eps" />
+    <Content Include="Content\fonts\eps\checked-2.eps" />
+    <Content Include="Content\fonts\eps\checked.eps" />
+    <Content Include="Content\fonts\eps\curved-arrow-1.eps" />
+    <Content Include="Content\fonts\eps\curved-arrow-2.eps" />
+    <Content Include="Content\fonts\eps\curved-arrow-3.eps" />
+    <Content Include="Content\fonts\eps\curved-arrow.eps" />
+    <Content Include="Content\fonts\eps\diagonal-arrow-1.eps" />
+    <Content Include="Content\fonts\eps\diagonal-arrow-2.eps" />
+    <Content Include="Content\fonts\eps\diagonal-arrow-3.eps" />
+    <Content Include="Content\fonts\eps\diagonal-arrow.eps" />
+    <Content Include="Content\fonts\eps\double-arrow.eps" />
+    <Content Include="Content\fonts\eps\double-chevron.eps" />
+    <Content Include="Content\fonts\eps\download-1.eps" />
+    <Content Include="Content\fonts\eps\download-10.eps" />
+    <Content Include="Content\fonts\eps\download-11.eps" />
+    <Content Include="Content\fonts\eps\download-12.eps" />
+    <Content Include="Content\fonts\eps\download-2.eps" />
+    <Content Include="Content\fonts\eps\download-3.eps" />
+    <Content Include="Content\fonts\eps\download-4.eps" />
+    <Content Include="Content\fonts\eps\download-5.eps" />
+    <Content Include="Content\fonts\eps\download-6.eps" />
+    <Content Include="Content\fonts\eps\download-7.eps" />
+    <Content Include="Content\fonts\eps\download-8.eps" />
+    <Content Include="Content\fonts\eps\download-9.eps" />
+    <Content Include="Content\fonts\eps\download.eps" />
+    <Content Include="Content\fonts\eps\export.eps" />
+    <Content Include="Content\fonts\eps\fast-forward-1.eps" />
+    <Content Include="Content\fonts\eps\fast-forward.eps" />
+    <Content Include="Content\fonts\eps\fullscreen-1.eps" />
+    <Content Include="Content\fonts\eps\fullscreen-2.eps" />
+    <Content Include="Content\fonts\eps\fullscreen.eps" />
+    <Content Include="Content\fonts\eps\indian-1.eps" />
+    <Content Include="Content\fonts\eps\indian-2.eps" />
+    <Content Include="Content\fonts\eps\indian.eps" />
+    <Content Include="Content\fonts\eps\list.eps" />
+    <Content Include="Content\fonts\eps\login.eps" />
+    <Content Include="Content\fonts\eps\logout.eps" />
+    <Content Include="Content\fonts\eps\menu-1.eps" />
+    <Content Include="Content\fonts\eps\menu-2.eps" />
+    <Content Include="Content\fonts\eps\menu-3.eps" />
+    <Content Include="Content\fonts\eps\menu.eps" />
+    <Content Include="Content\fonts\eps\more-1.eps" />
+    <Content Include="Content\fonts\eps\more.eps" />
+    <Content Include="Content\fonts\eps\next-1.eps" />
+    <Content Include="Content\fonts\eps\next-10.eps" />
+    <Content Include="Content\fonts\eps\next-11.eps" />
+    <Content Include="Content\fonts\eps\next-12.eps" />
+    <Content Include="Content\fonts\eps\next-13.eps" />
+    <Content Include="Content\fonts\eps\next-14.eps" />
+    <Content Include="Content\fonts\eps\next-2.eps" />
+    <Content Include="Content\fonts\eps\next-3.eps" />
+    <Content Include="Content\fonts\eps\next-4.eps" />
+    <Content Include="Content\fonts\eps\next-5.eps" />
+    <Content Include="Content\fonts\eps\next-6.eps" />
+    <Content Include="Content\fonts\eps\next-7.eps" />
+    <Content Include="Content\fonts\eps\next-8.eps" />
+    <Content Include="Content\fonts\eps\next-9.eps" />
+    <Content Include="Content\fonts\eps\next.eps" />
+    <Content Include="Content\fonts\eps\previous-1.eps" />
+    <Content Include="Content\fonts\eps\previous-2.eps" />
+    <Content Include="Content\fonts\eps\previous.eps" />
+    <Content Include="Content\fonts\eps\repeat-1.eps" />
+    <Content Include="Content\fonts\eps\repeat.eps" />
+    <Content Include="Content\fonts\eps\resize-1.eps" />
+    <Content Include="Content\fonts\eps\resize.eps" />
+    <Content Include="Content\fonts\eps\rewind-1.eps" />
+    <Content Include="Content\fonts\eps\rewind.eps" />
+    <Content Include="Content\fonts\eps\settings.eps" />
+    <Content Include="Content\fonts\eps\shuffle.eps" />
+    <Content Include="Content\fonts\eps\sort.eps" />
+    <Content Include="Content\fonts\eps\up-arrow-1.eps" />
+    <Content Include="Content\fonts\eps\up-arrow.eps" />
+    <Content Include="Content\fonts\eps\upload-1.eps" />
+    <Content Include="Content\fonts\eps\upload-10.eps" />
+    <Content Include="Content\fonts\eps\upload-2.eps" />
+    <Content Include="Content\fonts\eps\upload-3.eps" />
+    <Content Include="Content\fonts\eps\upload-4.eps" />
+    <Content Include="Content\fonts\eps\upload-5.eps" />
+    <Content Include="Content\fonts\eps\upload-6.eps" />
+    <Content Include="Content\fonts\eps\upload-7.eps" />
+    <Content Include="Content\fonts\eps\upload-8.eps" />
+    <Content Include="Content\fonts\eps\upload-9.eps" />
+    <Content Include="Content\fonts\eps\upload.eps" />
+    <Content Include="Content\fonts\font\Flaticon.eot" />
+    <Content Include="Content\fonts\font\Flaticon.ttf" />
+    <Content Include="Content\fonts\font\Flaticon.woff" />
+    <Content Include="Content\fonts\font\_flaticon.scss" />
+    <Content Include="Content\fonts\license\license.pdf" />
+    <Content Include="Content\fonts\psd\antique.psd" />
+    <Content Include="Content\fonts\psd\arrow-1.psd" />
+    <Content Include="Content\fonts\psd\arrow-2.psd" />
+    <Content Include="Content\fonts\psd\arrow-3.psd" />
+    <Content Include="Content\fonts\psd\arrow-4.psd" />
+    <Content Include="Content\fonts\psd\arrow.psd" />
+    <Content Include="Content\fonts\psd\back-1.psd" />
+    <Content Include="Content\fonts\psd\back-10.psd" />
+    <Content Include="Content\fonts\psd\back-11.psd" />
+    <Content Include="Content\fonts\psd\back-2.psd" />
+    <Content Include="Content\fonts\psd\back-3.psd" />
+    <Content Include="Content\fonts\psd\back-4.psd" />
+    <Content Include="Content\fonts\psd\back-5.psd" />
+    <Content Include="Content\fonts\psd\back-6.psd" />
+    <Content Include="Content\fonts\psd\back-7.psd" />
+    <Content Include="Content\fonts\psd\back-8.psd" />
+    <Content Include="Content\fonts\psd\back-9.psd" />
+    <Content Include="Content\fonts\psd\back.psd" />
+    <Content Include="Content\fonts\psd\cancel-1.psd" />
+    <Content Include="Content\fonts\psd\cancel-2.psd" />
+    <Content Include="Content\fonts\psd\cancel.psd" />
+    <Content Include="Content\fonts\psd\check.psd" />
+    <Content Include="Content\fonts\psd\checked-1.psd" />
+    <Content Include="Content\fonts\psd\checked-2.psd" />
+    <Content Include="Content\fonts\psd\checked.psd" />
+    <Content Include="Content\fonts\psd\curved-arrow-1.psd" />
+    <Content Include="Content\fonts\psd\curved-arrow-2.psd" />
+    <Content Include="Content\fonts\psd\curved-arrow-3.psd" />
+    <Content Include="Content\fonts\psd\curved-arrow.psd" />
+    <Content Include="Content\fonts\psd\diagonal-arrow-1.psd" />
+    <Content Include="Content\fonts\psd\diagonal-arrow-2.psd" />
+    <Content Include="Content\fonts\psd\diagonal-arrow-3.psd" />
+    <Content Include="Content\fonts\psd\diagonal-arrow.psd" />
+    <Content Include="Content\fonts\psd\double-arrow.psd" />
+    <Content Include="Content\fonts\psd\double-chevron.psd" />
+    <Content Include="Content\fonts\psd\download-1.psd" />
+    <Content Include="Content\fonts\psd\download-10.psd" />
+    <Content Include="Content\fonts\psd\download-11.psd" />
+    <Content Include="Content\fonts\psd\download-12.psd" />
+    <Content Include="Content\fonts\psd\download-2.psd" />
+    <Content Include="Content\fonts\psd\download-3.psd" />
+    <Content Include="Content\fonts\psd\download-4.psd" />
+    <Content Include="Content\fonts\psd\download-5.psd" />
+    <Content Include="Content\fonts\psd\download-6.psd" />
+    <Content Include="Content\fonts\psd\download-7.psd" />
+    <Content Include="Content\fonts\psd\download-8.psd" />
+    <Content Include="Content\fonts\psd\download-9.psd" />
+    <Content Include="Content\fonts\psd\download.psd" />
+    <Content Include="Content\fonts\psd\export.psd" />
+    <Content Include="Content\fonts\psd\fast-forward-1.psd" />
+    <Content Include="Content\fonts\psd\fast-forward.psd" />
+    <Content Include="Content\fonts\psd\fullscreen-1.psd" />
+    <Content Include="Content\fonts\psd\fullscreen-2.psd" />
+    <Content Include="Content\fonts\psd\fullscreen.psd" />
+    <Content Include="Content\fonts\psd\indian-1.psd" />
+    <Content Include="Content\fonts\psd\indian-2.psd" />
+    <Content Include="Content\fonts\psd\indian.psd" />
+    <Content Include="Content\fonts\psd\list.psd" />
+    <Content Include="Content\fonts\psd\login.psd" />
+    <Content Include="Content\fonts\psd\logout.psd" />
+    <Content Include="Content\fonts\psd\menu-1.psd" />
+    <Content Include="Content\fonts\psd\menu-2.psd" />
+    <Content Include="Content\fonts\psd\menu-3.psd" />
+    <Content Include="Content\fonts\psd\menu.psd" />
+    <Content Include="Content\fonts\psd\more-1.psd" />
+    <Content Include="Content\fonts\psd\more.psd" />
+    <Content Include="Content\fonts\psd\next-1.psd" />
+    <Content Include="Content\fonts\psd\next-10.psd" />
+    <Content Include="Content\fonts\psd\next-11.psd" />
+    <Content Include="Content\fonts\psd\next-12.psd" />
+    <Content Include="Content\fonts\psd\next-13.psd" />
+    <Content Include="Content\fonts\psd\next-14.psd" />
+    <Content Include="Content\fonts\psd\next-2.psd" />
+    <Content Include="Content\fonts\psd\next-3.psd" />
+    <Content Include="Content\fonts\psd\next-4.psd" />
+    <Content Include="Content\fonts\psd\next-5.psd" />
+    <Content Include="Content\fonts\psd\next-6.psd" />
+    <Content Include="Content\fonts\psd\next-7.psd" />
+    <Content Include="Content\fonts\psd\next-8.psd" />
+    <Content Include="Content\fonts\psd\next-9.psd" />
+    <Content Include="Content\fonts\psd\next.psd" />
+    <Content Include="Content\fonts\psd\previous-1.psd" />
+    <Content Include="Content\fonts\psd\previous-2.psd" />
+    <Content Include="Content\fonts\psd\previous.psd" />
+    <Content Include="Content\fonts\psd\repeat-1.psd" />
+    <Content Include="Content\fonts\psd\repeat.psd" />
+    <Content Include="Content\fonts\psd\resize-1.psd" />
+    <Content Include="Content\fonts\psd\resize.psd" />
+    <Content Include="Content\fonts\psd\rewind-1.psd" />
+    <Content Include="Content\fonts\psd\rewind.psd" />
+    <Content Include="Content\fonts\psd\settings.psd" />
+    <Content Include="Content\fonts\psd\shuffle.psd" />
+    <Content Include="Content\fonts\psd\sort.psd" />
+    <Content Include="Content\fonts\psd\up-arrow-1.psd" />
+    <Content Include="Content\fonts\psd\up-arrow.psd" />
+    <Content Include="Content\fonts\psd\upload-1.psd" />
+    <Content Include="Content\fonts\psd\upload-10.psd" />
+    <Content Include="Content\fonts\psd\upload-2.psd" />
+    <Content Include="Content\fonts\psd\upload-3.psd" />
+    <Content Include="Content\fonts\psd\upload-4.psd" />
+    <Content Include="Content\fonts\psd\upload-5.psd" />
+    <Content Include="Content\fonts\psd\upload-6.psd" />
+    <Content Include="Content\fonts\psd\upload-7.psd" />
+    <Content Include="Content\fonts\psd\upload-8.psd" />
+    <Content Include="Content\fonts\psd\upload-9.psd" />
+    <Content Include="Content\fonts\psd\upload.psd" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Produto\consultaProduto.cshtml" />
+    <Content Include="Views\Pedido\consultaPedido.cshtml" />
+    <Content Include="Views\Pedido\cadastroPedido.cshtml" />
+    <Content Include="Views\Produto\areaGerente.cshtml" />
+    <Content Include="Views\Home\semAcesso.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50278</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44385/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

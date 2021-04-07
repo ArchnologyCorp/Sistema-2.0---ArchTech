@@ -1,0 +1,47 @@
+﻿
+@model Arch_Tech.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="content">
+        <div class="card" id="cardLogin">
+            <br />
+            <h2>Login</h2>
+            <br />
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    @Html.EditorFor(x => x.nome_usuario, new
+                     {
+                         htmlAttributes = new { id = "txtUsuario", senha = "txtUsuario", type = "text", @class = "form-control", placeholder = "Digite o nome de usuário", required = "required", maxlength = "20" }
+                     })
+
+                    @Html.ValidationMessageFor(x => x.nome_usuario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    @Html.EditorFor(x => x.senha, new
+                    {
+                        htmlAttributes = new { id = "txtSenha", senha = "txtSenha", type = "password", @class = "form-control", placeholder = "Digite a senha", required = "required", maxlength = "20" }
+                    })
+
+                    @Html.ValidationMessageFor(x => x.senha, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <p style="color: #fff; text-align: center">@ViewBag.msgLogar</p>
+            <br />
+            <input type="submit" class="btn button-a button-big button-rouded btn-success" id="botaoPadrao" value="ENTRAR">
+            <br />
+        </div>
+    </div>
+}
+
+
+
